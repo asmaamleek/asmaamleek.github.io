@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الحلقة اليومية – اللغة العربية</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f0f9ff;
+            background-image: radial-gradient(#bae6fd 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s;
+        }
+        .card-shadow:hover {
+            transform: translateY(-2px);
+        }
+        .weather-icon.active {
+            color: #f59e0b; /* Amber 500 */
+            transform: scale(1.2);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555; 
+        }
+    </style>
+</head>
+<body class="text-gray-800 pb-12">
+
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-teal-500 to-blue-500 text-white p-6 rounded-b-3xl shadow-lg mb-8 text-center relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+            <i class="fas fa-star text-4xl absolute top-4 left-10 animate-pulse"></i>
+            <i class="fas fa-moon text-3xl absolute bottom-4 right-10"></i>
+            <i class="fas fa-cloud text-5xl absolute top-10 right-20"></i>
+        </div>
+        <h1 class="text-3xl md:text-5xl font-black mb-2">الحلقة اليومية 🌞</h1>
+        <p class="text-xl opacity-90">اللغة العربية - مدرسة المساعي الخاصة</p>
+    </header>
+
+    <main class="container mx-auto px-4 max-w-5xl space-y-8">
+
+        <!-- 1. الاستقبال والتحية (Reception & Greeting) -->
+        <section class="bg-white rounded-2xl p-6 card-shadow border-t-8 border-teal-400">
+            <h2 class="text-2xl font-bold text-teal-600 mb-6 flex items-center gap-2">
+                <i class="fas fa-hands-praying"></i> الاستقبال والتحية
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-4 mb-6">
+                <!-- Salam -->
+                <div class="bg-green-50 p-4 rounded-xl border border-green-100 text-center">
+                    <h3 class="font-bold text-green-700 mb-2">🔸 تحية الإسلام</h3>
+                    <p class="text-xl font-bold text-gray-700">✦ السلام عليكم ورحمة الله وبركاته 🤍</p>
+                </div>
+                <!-- Morning Dua -->
+                <div class="bg-yellow-50 p-4 rounded-xl border border-yellow-100 text-center">
+                    <h3 class="font-bold text-yellow-700 mb-2">🔸 دعاء الصباح</h3>
+                    <p class="text-lg text-gray-700">"اللهم بك أصبحنا، وبك أمسينا، وبك نحيا، وبك نموت، وإليك النشور."</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-4">
+                <!-- Daily Dua -->
+                <div class="bg-blue-50 p-4 rounded-xl border border-blue-100 text-center">
+                    <h3 class="font-bold text-blue-700 mb-2">🔸 دعاء اليوم</h3>
+                    <p class="text-lg text-gray-700">"اللهم إني أسألك خير هذا اليوم، ونصره، وبركته، وهداه."</p>
+                </div>
+                <!-- Riding Dua -->
+                <div class="bg-purple-50 p-4 rounded-xl border border-purple-100 text-center relative overflow-hidden">
+                    <h3 class="font-bold text-purple-700 mb-2">🔸 دعاء الركوب 🚗</h3>
+                    <p class="text-lg text-gray-700 mb-2">"سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ وَإِنَّا إِلَى رَبِّنَا لَمُنقَلِبُونَ"</p>
+                    <span class="text-xs text-purple-500 block">– رواه مسلم (2992)</span>
+                    <div class="mt-2 bg-purple-200 text-purple-800 text-xs py-1 px-2 rounded-full inline-block">
+                        📌 دايما نذكر أطفالنا بهذا الدعاء يومياً
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. فقرة البيانات اليومية (Daily Data) -->
+        <section class="bg-white rounded-2xl p-6 card-shadow border-t-8 border-orange-400">
+            <h2 class="text-2xl font-bold text-orange-600 mb-6 flex items-center gap-2">
+                <i class="fas fa-calendar-alt"></i> فقرة البيانات اليومية
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Dates -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3 bg-gray-50 p-3 rounded-lg">
+                        <i class="fas fa-calendar-day text-orange-500 text-xl w-8"></i>
+                        <div>
+                            <span class="text-gray-500 text-sm block">التاريخ الميلادي:</span>
+                            <div class="font-bold text-lg" id="gregorian-date">.........</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 bg-gray-50 p-3 rounded-lg">
+                        <i class="fas fa-moon text-orange-500 text-xl w-8"></i>
+                        <div>
+                            <span class="text-gray-500 text-sm block">التاريخ الهجري:</span>
+                            <div class="font-bold text-lg" id="hijri-date">.........</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3 bg-gray-50 p-3 rounded-lg">
+                        <i class="fas fa-school text-orange-500 text-xl w-8"></i>
+                        <div>
+                            <span class="text-gray-500 text-sm block">اسم المدرسة:</span>
+                            <div class="font-bold text-lg">المساعي الخاصة</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 bg-gray-50 p-3 rounded-lg">
+                        <i class="fas fa-globe-africa text-orange-500 text-xl w-8"></i>
+                        <div>
+                            <span class="text-gray-500 text-sm block">البلد:</span>
+                            <div class="font-bold text-lg">مصر 🇪🇬</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weather -->
+            <div class="mt-6 bg-blue-50 p-4 rounded-xl text-center">
+                <h3 class="font-bold text-blue-800 mb-4">☀️ حالة الطقس</h3>
+                <div class="flex justify-center gap-6 text-3xl text-gray-400">
+                    <button class="weather-btn hover:text-yellow-500 transition flex flex-col items-center gap-1 group" onclick="setWeather(this)">
+                        <i class="fas fa-sun text-yellow-500 group-hover:scale-110 transition"></i>
+                        <span class="text-xs font-bold text-gray-600">مشمس</span>
+                    </button>
+                    <button class="weather-btn hover:text-blue-500 transition flex flex-col items-center gap-1 group" onclick="setWeather(this)">
+                        <i class="fas fa-cloud-rain text-blue-500 group-hover:scale-110 transition"></i>
+                        <span class="text-xs font-bold text-gray-600">ممطر</span>
+                    </button>
+                    <button class="weather-btn hover:text-gray-600 transition flex flex-col items-center gap-1 group" onclick="setWeather(this)">
+                        <i class="fas fa-cloud group-hover:scale-110 transition"></i>
+                        <span class="text-xs font-bold text-gray-600">غائم</span>
+                    </button>
+                    <button class="weather-btn hover:text-green-500 transition flex flex-col items-center gap-1 group" onclick="setWeather(this)">
+                        <i class="fas fa-cloud-sun text-green-500 group-hover:scale-110 transition"></i>
+                        <span class="text-xs font-bold text-gray-600">معتدل</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. مراجعة دينية بسيطة (Religious Review) -->
+        <section class="bg-white rounded-2xl p-6 card-shadow border-t-8 border-indigo-400">
+            <h2 class="text-2xl font-bold text-indigo-600 mb-6 flex items-center gap-2">
+                <i class="fas fa-kaaba"></i> مراجعة دينية بسيطة
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-indigo-50 p-5 rounded-2xl text-center hover:bg-indigo-100 transition">
+                    <div class="text-3xl mb-2">✨</div>
+                    <h3 class="text-gray-600 font-bold mb-1">ما ديانتك؟</h3>
+                    <p class="text-2xl font-black text-indigo-700">أنا مسلم</p>
+                </div>
+                <div class="bg-indigo-50 p-5 rounded-2xl text-center hover:bg-indigo-100 transition">
+                    <div class="text-3xl mb-2">☝️</div>
+                    <h3 class="text-gray-600 font-bold mb-1">من ربك؟</h3>
+                    <p class="text-2xl font-black text-indigo-700">الله</p>
+                </div>
+                <div class="bg-indigo-50 p-5 rounded-2xl text-center hover:bg-indigo-100 transition">
+                    <div class="text-3xl mb-2">🕌</div>
+                    <h3 class="text-gray-600 font-bold mb-1">من نبيك؟</h3>
+                    <p class="text-lg font-black text-indigo-700 leading-tight">سيدنا محمد<br><span class="text-sm font-normal">رسول الله ﷺ</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. مشروع وسائل المواصلات (Transportation Project) -->
+        <section class="bg-white rounded-2xl p-6 card-shadow border-t-8 border-red-400">
+            <h2 class="text-2xl font-bold text-red-600 mb-6 flex items-center gap-2">
+                <i class="fas fa-car-side"></i> مشروع وسائل المواصلات
+            </h2>
+
+            <!-- Intro -->
+            <div class="bg-red-50 rounded-xl p-4 mb-6 text-center">
+                <h3 class="text-xl font-bold text-red-700">🎒 التمهيد: سؤال للأطفال</h3>
+                <p class="text-2xl font-black mt-2 text-gray-800">"إزاي جينا المدرسة؟"</p>
+                <div class="flex justify-center gap-4 mt-3 text-3xl">
+                    <span>🚶</span><span>🚌</span><span>🚗</span>
+                </div>
+            </div>
+
+            <!-- Types Grid -->
+            <div class="grid md:grid-cols-3 gap-4 mb-8">
+                <!-- Land -->
+                <div class="border-2 border-dashed border-gray-300 rounded-xl p-4 text-center hover:border-green-400 transition">
+                    <i class="fas fa-road text-4xl text-green-500 mb-2"></i>
+                    <h4 class="font-bold text-lg mb-2">برية</h4>
+                    <div class="flex flex-wrap justify-center gap-2 text-sm text-gray-600">
+                        <span class="bg-gray-100 px-2 py-1 rounded">سيارة 🚗</span>
+                        <span class="bg-gray-100 px-2 py-1 rounded">أتوبيس 🚌</span>
+                        <span class="bg-gray-100 px-2 py-1 rounded">قطار 🚂</span>
+                    </div>
+                </div>
+                <!-- Water -->
+                <div class="border-2 border-dashed border-gray-300 rounded-xl p-4 text-center hover:border-blue-400 transition">
+                    <i class="fas fa-water text-4xl text-blue-500 mb-2"></i>
+                    <h4 class="font-bold text-lg mb-2">مائية</h4>
+                    <div class="flex flex-wrap justify-center gap-2 text-sm text-gray-600">
+                        <span class="bg-gray-100 px-2 py-1 rounded">سفينة 🚢</span>
+                        <span class="bg-gray-100 px-2 py-1 rounded">قارب 🚤</span>
+                    </div>
+                </div>
+                <!-- Air -->
+                <div class="border-2 border-dashed border-gray-300 rounded-xl p-4 text-center hover:border-sky-400 transition">
+                    <i class="fas fa-plane text-4xl text-sky-500 mb-2"></i>
+                    <h4 class="font-bold text-lg mb-2">جوية</h4>
+                    <div class="flex flex-wrap justify-center gap-2 text-sm text-gray-600">
+                        <span class="bg-gray-100 px-2 py-1 rounded">طائرة ✈️</span>
+                        <span class="bg-gray-100 px-2 py-1 rounded">هليكوبتر 🚁</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Life Skills -->
+            <div class="bg-gray-800 text-white rounded-xl p-6 mb-8">
+                <h3 class="font-bold text-xl mb-4 border-b border-gray-600 pb-2">🚸 المهارات الحياتية</h3>
+                <div class="flex flex-col md:flex-row justify-around items-center gap-6">
+                    <div class="text-center">
+                        <div class="flex flex-col items-center bg-gray-900 p-2 rounded-lg w-12 mx-auto mb-2 border border-gray-600">
+                            <div class="w-6 h-6 rounded-full bg-red-500 mb-1 animate-pulse"></div>
+                            <div class="w-6 h-6 rounded-full bg-yellow-500 mb-1 opacity-30"></div>
+                            <div class="w-6 h-6 rounded-full bg-green-500 opacity-30"></div>
+                        </div>
+                        <span>إشارة المرور 🚦</span>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-user-shield text-4xl text-blue-400 mb-2"></i>
+                        <span class="block">ربط الحزام ✔️</span>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-walking text-4xl text-yellow-400 mb-2"></i>
+                        <span class="block">المشي على الرصيف</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Section -->
+            <div class="bg-pink-50 rounded-xl p-6 text-center border border-pink-100">
+                <h3 class="font-bold text-2xl text-pink-600 mb-4">🎵 أغنية المواصلات "حفظ"</h3>
+                <div class="relative w-full pb-[56.25%] h-0 rounded-xl overflow-hidden shadow-lg bg-black">
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/DgJ9Heq6Yt4?si=DBoUc9y6HhwZgAJ1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="text-center text-gray-500 text-sm py-6">
+        <p>تم التصميم للمساعدة في العملية التعليمية ❤️</p>
+    </footer>
+
+    <script>
+        // Simple script to handle weather selection visual feedback
+        function setWeather(btn) {
+            // Remove active style from all
+            document.querySelectorAll('.weather-btn i').forEach(icon => {
+                icon.classList.remove('scale-125', 'text-orange-500', 'text-blue-500', 'text-green-500');
+                icon.classList.add('text-gray-400');
+            });
+
+            // Add active style to clicked
+            const icon = btn.querySelector('i');
+            icon.classList.remove('text-gray-400');
+            
+            // Re-add color based on class logic (simplified here just to keep the color defined in HTML or inline)
+            // This is a simple visual toggle for the demo
+            if(btn.innerText.includes('مشمس')) icon.classList.add('text-yellow-500', 'scale-125');
+            else if(btn.innerText.includes('ممطر')) icon.classList.add('text-blue-500', 'scale-125');
+            else if(btn.innerText.includes('غائم')) icon.classList.add('text-gray-600', 'scale-125');
+            else if(btn.innerText.includes('معتدل')) icon.classList.add('text-green-500', 'scale-125');
+        }
+
+        // Optional: Auto-fill date placeholders with today's date
+        const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const today = new Date();
+        // Use a simple placeholder logic if you want static dots, or uncomment below to auto-fill
+        // document.getElementById('gregorian-date').innerText = today.toLocaleDateString('ar-EG', dateOptions);
+    </script>
+</body>
+</html>
