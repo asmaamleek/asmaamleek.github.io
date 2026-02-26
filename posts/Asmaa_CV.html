@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CV - أسماء احمد عبدالحميد مليك</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --gold:        #c9a84c;
+      --gold-light:  #e8c97a;
+      --gold-dark:   #8a6520;
+      --gold-pale:   #f5e8c0;
+      --brown-deep:  #2b1a06;
+      --brown-mid:   #4e2f0e;
+      --brown-soft:  #7a5230;
+      --cream:       #fdf3e0;
+      --cream-warm:  #f8ead0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Tajawal', sans-serif;
+      min-height: 100vh;
+      background: var(--brown-deep);
+      background-image:
+        radial-gradient(ellipse at 20% 10%, rgba(201,168,76,0.28) 0%, transparent 45%),
+        radial-gradient(ellipse at 80% 90%, rgba(201,168,76,0.18) 0%, transparent 45%),
+        radial-gradient(ellipse at 50% 50%, rgba(78,47,14,0.85) 0%, transparent 70%);
+      padding: 40px 20px 60px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Hatched gold texture */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        115deg,
+        transparent 0px, transparent 80px,
+        rgba(201,168,76,0.03) 80px, rgba(201,168,76,0.03) 81px
+      );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Floating sparkles */
+    .spark {
+      position: fixed;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--gold-light) 0%, transparent 70%);
+      opacity: 0;
+      animation: sparkFloat var(--dur,10s) ease-in-out infinite;
+      animation-delay: var(--del,0s);
+      pointer-events: none;
+      z-index: 0;
+    }
+    @keyframes sparkFloat {
+      0%   { transform: translateY(105vh) scale(0) rotate(0deg); opacity: 0; }
+      10%  { opacity: 0.18; }
+      90%  { opacity: 0.04; }
+      100% { transform: translateY(-5vh) scale(1.2) rotate(180deg); opacity: 0; }
+    }
+
+    /* ══ PAGE ══ */
+    .page {
+      max-width: 950px;
+      margin: 0 auto;
+      background: var(--cream);
+      border-radius: 4px;
+      box-shadow:
+        0 0 0 1px rgba(201,168,76,0.45),
+        0 0 0 5px rgba(201,168,76,0.08),
+        0 30px 100px rgba(0,0,0,0.65),
+        0 8px 30px rgba(0,0,0,0.35);
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      animation: pageIn 1s cubic-bezier(.22,.68,0,1.15) both;
+    }
+    @keyframes pageIn {
+      from { opacity:0; transform: translateY(60px) scale(0.96); }
+      to   { opacity:1; transform: translateY(0)    scale(1); }
+    }
+
+    /* ══ HEADER ══ */
+    .header {
+      background: linear-gradient(135deg, #1e1004 0%, #3d2209 60%, #1e1004 100%);
+      padding: 52px 60px 44px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Rotating rings */
+    .ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1.5px solid rgba(201,168,76,0.2);
+      animation: rotate var(--s,22s) linear infinite;
+      animation-direction: var(--dir, normal);
+    }
+    .r1 { width:360px; height:360px; top:-130px; left:-90px;  --s:28s; }
+    .r2 { width:220px; height:220px; bottom:-90px; right:50px; --s:18s; --dir:reverse; border-color:rgba(201,168,76,0.13); }
+    .r3 { width:520px; height:520px; top:-220px; right:-170px; --s:38s; border-color:rgba(201,168,76,0.07); }
+    @keyframes rotate { to { transform: rotate(360deg); } }
+
+    /* Shimmer line */
+    .glow-line {
+      position: absolute;
+      bottom: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold-light), var(--gold), var(--gold-light), transparent);
+      background-size: 200% 100%;
+      animation: lineShimmer 3s linear infinite;
+    }
+    @keyframes lineShimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+
+    .header-inner { position: relative; z-index: 2; }
+
+    .name-ar {
+      font-family: 'Amiri', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      animation: slideR 0.9s 0.3s ease both;
+    }
+    @keyframes slideR {
+      from { opacity:0; transform:translateX(30px); }
+      to   { opacity:1; transform:translateX(0); }
+    }
+
+    .name-divider {
+      height: 3px;
+      width: 0;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light), transparent);
+      margin: 14px 0;
+      animation: growLine 1s 0.7s ease both;
+    }
+    @keyframes growLine { from{width:0} to{width:110px} }
+
+    .title-label {
+      font-size: 0.95rem;
+      color: var(--gold-light);
+      letter-spacing: 0.1em;
+      font-weight: 500;
+      margin-bottom: 28px;
+      animation: slideU 0.8s 0.85s ease both;
+    }
+    @keyframes slideU {
+      from { opacity:0; transform:translateY(16px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    .contact-bar {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      animation: slideU 0.8s 1.05s ease both;
+    }
+
+    .contact-item {
+      display: flex; align-items: center; gap: 9px;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.87rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .contact-item:hover { color: var(--gold-light); }
+
+    .c-icon {
+      width: 30px; height: 30px;
+      border: 1px solid rgba(201,168,76,0.4);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem;
+      background: rgba(201,168,76,0.07);
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .contact-item:hover .c-icon {
+      background: rgba(201,168,76,0.22);
+      border-color: var(--gold);
+    }
+
+    /* ══ BODY ══ */
+    .body {
+      display: grid;
+      grid-template-columns: 1fr 285px;
+    }
+
+    .main {
+      padding: 50px 50px 50px 40px;
+      border-left: 1px solid rgba(139,101,32,0.15);
+    }
+
+    .sidebar {
+      background: linear-gradient(180deg, #f0ddb8 0%, #e5c99e 100%);
+      padding: 50px 36px;
+    }
+
+    /* ══ SECTIONS ══ */
+    .section {
+      margin-bottom: 42px;
+      opacity: 0;
+      animation: secIn 0.7s ease both;
+    }
+    .section:nth-child(1) { animation-delay: 0.55s; }
+    .section:nth-child(2) { animation-delay: 0.75s; }
+    .section:nth-child(3) { animation-delay: 0.95s; }
+    .section:nth-child(4) { animation-delay: 1.15s; }
+    @keyframes secIn {
+      from { opacity:0; transform:translateY(20px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    .section-title {
+      font-family: 'Amiri', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--brown-deep);
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-title::after {
+      content:''; flex:1; height:1.5px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+
+    .sec-icon {
+      width: 34px; height: 34px;
+      background: linear-gradient(135deg, var(--brown-deep), var(--brown-mid));
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+    }
+
+    /* Education */
+    .edu-box {
+      background: linear-gradient(135deg, var(--brown-deep) 0%, #3d2209 100%);
+      border-radius: 14px;
+      padding: 26px 28px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(201,168,76,0.3);
+      box-shadow: 0 10px 35px rgba(0,0,0,0.22);
+    }
+    .edu-box::before {
+      content:'';
+      position:absolute; top:-40px; left:-40px;
+      width:150px; height:150px;
+      border:1px solid rgba(201,168,76,0.15);
+      border-radius:50%;
+    }
+    .edu-degree {
+      font-family:'Amiri',serif; font-size:1.1rem; font-weight:700;
+      margin-bottom:6px; position:relative; z-index:1;
+    }
+    .edu-uni { font-size:0.85rem; color:rgba(255,255,255,0.58); margin-bottom:14px; }
+    .edu-grade {
+      display:inline-flex; align-items:center; gap:6px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      color: var(--brown-deep);
+      padding: 5px 16px;
+      border-radius: 30px;
+      font-size:0.82rem; font-weight:700;
+      box-shadow: 0 4px 14px rgba(201,168,76,0.45);
+      position:relative; z-index:1;
+    }
+
+    /* Experience */
+    .exp-entry { position:relative; padding-right:22px; margin-bottom:28px; }
+    .exp-entry::before {
+      content:''; position:absolute;
+      top:7px; right:0;
+      width:10px; height:10px;
+      background: var(--gold); border-radius:50%;
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.2);
+    }
+    .exp-entry::after {
+      content:''; position:absolute;
+      top:22px; right:4px;
+      width:2px; height:calc(100% - 14px);
+      background: linear-gradient(to bottom, rgba(201,168,76,0.4), transparent);
+    }
+    .exp-title    { font-size:1rem; font-weight:700; color:var(--brown-mid); margin-bottom:3px; }
+    .exp-subtitle { font-size:0.85rem; color:var(--brown-soft); margin-bottom:7px; }
+    .exp-date {
+      display:inline-block; font-size:0.78rem; color:var(--gold-dark);
+      background:rgba(201,168,76,0.14);
+      border:1px solid rgba(201,168,76,0.3);
+      padding:2px 12px; border-radius:20px; font-weight:600; margin-bottom:8px;
+    }
+    .exp-detail { font-size:0.85rem; color:var(--brown-soft); line-height:1.8; }
+
+    /* Courses */
+    .course-card {
+      border: 1px solid rgba(139,101,32,0.2);
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-bottom: 12px;
+      background: rgba(255,255,255,0.65);
+      position: relative; overflow: hidden;
+      transition: all 0.35s cubic-bezier(.22,.68,0,1.2);
+      cursor: default;
+    }
+    .course-card::before {
+      content:'';
+      position:absolute; top:0; right:0;
+      width:4px; height:100%;
+      background: linear-gradient(to bottom, var(--gold), var(--gold-light));
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.35s ease;
+    }
+    .course-card:hover {
+      transform: translateX(-6px);
+      box-shadow: 6px 0 22px rgba(201,168,76,0.18);
+      border-color: var(--gold);
+      background: #fff;
+    }
+    .course-card:hover::before { transform: scaleY(1); }
+    .course-name   { font-size:0.92rem; font-weight:700; color:var(--brown-mid); margin-bottom:4px; }
+    .course-detail { font-size:0.78rem; color:var(--brown-soft); line-height:1.55; }
+
+    /* Volunteer */
+    .vol-item { display:flex; gap:14px; align-items:flex-start; margin-bottom:14px; }
+    .vol-year {
+      font-size:0.78rem; color:var(--gold-dark); font-weight:700;
+      background:rgba(201,168,76,0.16);
+      border:1px solid rgba(201,168,76,0.3);
+      padding:3px 10px; border-radius:20px; flex-shrink:0; white-space:nowrap;
+    }
+    .vol-text { font-size:0.85rem; color:var(--brown-soft); line-height:1.7; }
+
+    /* Sidebar skills */
+    .sidebar .section-title { font-size:1.1rem; color:var(--brown-deep); }
+    .sidebar .section-title::after { background: linear-gradient(90deg, var(--gold-dark), transparent); }
+
+    .skill-item {
+      display:flex; align-items:flex-start; gap:10px;
+      margin-bottom:11px;
+      font-size:0.85rem; color:var(--brown-mid); line-height:1.55;
+      transition: transform 0.25s ease, color 0.25s;
+    }
+    .skill-item:hover { transform:translateX(-4px); color:var(--brown-deep); }
+    .skill-dot {
+      width:7px; height:7px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      border-radius:50%; flex-shrink:0; margin-top:6px;
+      box-shadow: 0 1px 5px rgba(201,168,76,0.45);
+    }
+
+    /* Footer */
+    .footer-strip {
+      height: 5px;
+      background: linear-gradient(90deg,
+        var(--brown-deep), var(--gold-dark), var(--gold), var(--gold-light),
+        var(--gold), var(--gold-dark), var(--brown-deep));
+      background-size: 200% 100%;
+      animation: lineShimmer 4s linear infinite;
+    }
+
+    @media print {
+      body { background:#fff; padding:0; }
+      .page { box-shadow:none; animation:none; }
+      .section { opacity:1; animation:none; }
+      .spark { display:none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sparkles -->
+  <div class="spark" style="width:5px;height:5px;left:8%;  --dur:12s;--del:0s;"></div>
+  <div class="spark" style="width:4px;height:4px;left:23%; --dur:9s; --del:2s;"></div>
+  <div class="spark" style="width:7px;height:7px;left:58%; --dur:14s;--del:1s;"></div>
+  <div class="spark" style="width:4px;height:4px;left:78%; --dur:10s;--del:3.5s;"></div>
+  <div class="spark" style="width:6px;height:6px;left:44%; --dur:11s;--del:5s;"></div>
+  <div class="spark" style="width:3px;height:3px;left:68%; --dur:8s; --del:4s;"></div>
+  <div class="spark" style="width:5px;height:5px;left:88%; --dur:13s;--del:6s;"></div>
+
+  <div class="page">
+
+    <!-- HEADER -->
+    <div class="header">
+      <div class="ring r1"></div>
+      <div class="ring r2"></div>
+      <div class="ring r3"></div>
+      <div class="glow-line"></div>
+
+      <div class="header-inner">
+        <div class="name-ar">أسماء احمد عبدالحميد مليك</div>
+        <div class="name-divider"></div>
+        <div class="title-label">معلمة رياض أطفال | مربية ومبدعة</div>
+        <div class="contact-bar">
+          <a href="tel:+201003475018" class="contact-item">
+            <span class="c-icon">📞</span>
+            <span dir="ltr">+201003475018</span>
+          </a>
+          <a href="mailto:asmaaabdelhamed1990@gmail.com" class="contact-item">
+            <span class="c-icon">✉</span>
+            asmaaabdelhamed1990@gmail.com
+          </a>
+          <span class="contact-item">
+            <span class="c-icon">📍</span>
+            مدينة العبور، القليوبية
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BODY -->
+    <div class="body">
+
+      <!-- MAIN -->
+      <div class="main">
+
+        <div class="section">
+          <div class="section-title"><span class="sec-icon">🎓</span>المؤهل الدراسي</div>
+          <div class="edu-box">
+            <div class="edu-degree">بكالوريوس مهني في التربية للطفولة المبكرة</div>
+            <div class="edu-uni">جامعة القاهرة — 2021</div>
+            <span class="edu-grade">✦ تقدير امتياز</span>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title"><span class="sec-icon">💼</span>الخبرة العملية</div>
+          <div class="exp-entry">
+            <div class="exp-title">معلمة رياض أطفال</div>
+            <div class="exp-subtitle">مدرسة المساعي الخاصة للغات — العبور</div>
+            <span class="exp-date">2023 — حتى الآن</span>
+            <div class="exp-detail">
+              تدريس المناهج باستخدام استراتيجيات تعليمية حديثة (التعلم النشط — التعلم بالمشروعات — التعلم التعاوني) بما يعزز مشاركة الأطفال وتنمية مهاراتهم. إدارة فصول دراسية لأكثر من 30 طالبًا، وتنظيم الفعاليات والرحلات.
+            </div>
+          </div>
+          <div class="exp-entry">
+            <div class="exp-title">عضو كنترول</div>
+            <div class="exp-subtitle">مدرسة المساعي الخاصة للغات — العبور</div>
+            <span class="exp-date">2023 — حتى الآن</span>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title"><span class="sec-icon">📜</span>الدورات والشهادات</div>
+          <div class="course-card">
+            <div class="course-name">الرخصة الدولية لقيادة الحاسب الآلي (ICDL)</div>
+            <div class="course-detail">HP Foundation — 2024 | أساسيات الكمبيوتر، الإنترنت، مايكروسوفت أوفيس، أمن المعلومات</div>
+          </div>
+          <div class="course-card">
+            <div class="course-name">دورة تصميم الإنفوجرافيك التعليمي</div>
+            <div class="course-detail">إعداد وتصميم الإنفوجرافيك لعرض المفاهيم الأكاديمية بطريقة بصرية مبسطة وجذابة</div>
+          </div>
+          <div class="course-card">
+            <div class="course-name">Certified Qualified Digital Educator</div>
+            <div class="course-detail">شهادة معلم رقمي معتمد</div>
+          </div>
+          <div class="course-card">
+            <div class="course-name">توظيف أدوات الذكاء الاصطناعي في التدريس</div>
+            <div class="course-detail">2025 | توظيف التكنولوجيا الرقمية في تطوير استراتيجيات التدريس وتحسين التفاعل داخل الفصل</div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title"><span class="sec-icon">🤝</span>العمل التطوعي</div>
+          <div class="vol-item">
+            <span class="vol-year">2008</span>
+            <div class="vol-text"><strong>جمعية الرسالة</strong> — دروس التقوية، مساعدة الأسر الفقيرة، رعاية المسنين (الابن البار)</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="sidebar">
+
+        <div class="section">
+          <div class="section-title"><span class="sec-icon">⚡</span>المهارات</div>
+          <div class="skill-item"><span class="skill-dot"></span>أداء مهام متعددة بكفاءة عالية</div>
+          <div class="skill-item"><span class="skill-dot"></span>إدارة فصول لأكثر من 30 طالبًا</div>
+          <div class="skill-item"><span class="skill-dot"></span>توظيف استراتيجيات تدريس حديثة</div>
+          <div class="skill-item"><span class="skill-dot"></span>العمل الجماعي والتعاون</div>
+          <div class="skill-item"><span class="skill-dot"></span>تقييم التلاميذ ومتابعتهم</div>
+          <div class="skill-item"><span class="skill-dot"></span>إدارة الوقت والتكيف</div>
+          <div class="skill-item"><span class="skill-dot"></span>التواصل مع الطلاب وأولياء الأمور</div>
+          <div class="skill-item"><span class="skill-dot"></span>الصبر وخلق بيئة تعلم ممتعة</div>
+          <div class="skill-item"><span class="skill-dot"></span>اكتشاف المشكلات وتقديم الحلول</div>
+          <div class="skill-item"><span class="skill-dot"></span>تنظيم الحفلات والرحلات التعليمية</div>
+          <div class="skill-item"><span class="skill-dot"></span>التدريب على العروض الاستعراضية</div>
+        </div>
+
+        <div class="section">
+          <div class="section-title"><span class="sec-icon">💻</span>المنصات التعليمية</div>
+          <div class="skill-item"><span class="skill-dot"></span>منصة سلاح التلميذ</div>
+          <div class="skill-item"><span class="skill-dot"></span>منصة ماي سكول</div>
+          <div class="skill-item"><span class="skill-dot"></span>مايكروسوفت أوفيس</div>
+          <div class="skill-item"><span class="skill-dot"></span>أدوات الذكاء الاصطناعي التعليمية</div>
+        </div>
+
+        <div class="section">
+          <div class="section-title"><span class="sec-icon">🌟</span>استراتيجيات التدريس</div>
+          <div class="skill-item"><span class="skill-dot"></span>التعلم النشط</div>
+          <div class="skill-item"><span class="skill-dot"></span>التعلم بالمشروعات</div>
+          <div class="skill-item"><span class="skill-dot"></span>التعلم التعاوني</div>
+          <div class="skill-item"><span class="skill-dot"></span>الإنفوجرافيك التعليمي</div>
+          <div class="skill-item"><span class="skill-dot"></span>التعليم الرقمي</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-strip"></div>
+  </div>
+
+</body>
+</html>
