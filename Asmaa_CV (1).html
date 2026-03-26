@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CV – أسماء احمد عبدالحميد مليك</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+/* ═══════════════════════════
+   TOKENS
+═══════════════════════════ */
+:root{
+  --o:        #808000;   /* pure olive */
+  --o-lt:     #9faa00;
+  --o-bright: #b8c200;
+  --o-pale:   #e8eeaa;
+  --o-mist:   #f5f7dc;
+  --o-dk:     #555500;
+  --o-deep:   #252500;
+  --o-mid:    #6a6a10;
+  --o-soft:   #7a7a30;
+  --cream:    #fafae6;
+  --ink:      #1e1e00;
+}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+/* ═══════════════════════════
+   BACKGROUND
+═══════════════════════════ */
+body{
+  font-family:'Tajawal',sans-serif;
+  background:#1a1a00;
+  background-image:
+    radial-gradient(ellipse 70% 60% at 10% 10%, rgba(128,128,0,.40) 0%,transparent 60%),
+    radial-gradient(ellipse 60% 50% at 90% 90%, rgba(128,128,0,.28) 0%,transparent 55%),
+    radial-gradient(ellipse 80% 80% at 50% 50%, rgba(20,20,0,.75) 0%,transparent 70%);
+  min-height:100vh;
+  padding:30px 14px 60px;
+  overflow-x:hidden;
+  position:relative;
+}
+/* fine diagonal lines */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background:repeating-linear-gradient(
+    112deg,
+    transparent 0,transparent 70px,
+    rgba(128,128,0,.045) 70px,rgba(128,128,0,.045) 71px
+  );
+  pointer-events:none;z-index:0;
+}
+
+/* ═══════════════════════════
+   FLOATING SPARKS
+═══════════════════════════ */
+.spark{
+  position:fixed;border-radius:50%;pointer-events:none;z-index:0;
+  background:radial-gradient(circle,var(--o-bright),transparent 70%);
+  opacity:0;
+  animation:sparkUp var(--d,11s) ease-in-out infinite var(--dl,0s);
+}
+@keyframes sparkUp{
+  0%  {transform:translateY(108vh) scale(0);opacity:0}
+  10% {opacity:.25}
+  88% {opacity:.05}
+  100%{transform:translateY(-8vh) scale(1.3);opacity:0}
+}
+
+/* ═══════════════════════════
+   PAGE CARD
+═══════════════════════════ */
+.page{
+  max-width:940px;margin:0 auto;
+  background:var(--cream);
+  border-radius:6px;overflow:hidden;
+  position:relative;z-index:1;
+  box-shadow:
+    0 0 0 2px var(--o),
+    0 0 0 5px rgba(128,128,0,.18),
+    0 0 0 6px rgba(128,128,0,.07),
+    0 32px 100px rgba(0,0,0,.7),
+    0 8px 30px  rgba(0,0,0,.45);
+  animation:pageIn .9s cubic-bezier(.22,.68,0,1.15) both;
+}
+@keyframes pageIn{
+  from{opacity:0;transform:translateY(55px) scale(.96)}
+  to  {opacity:1;transform:none}
+}
+
+/* ═══════════════════════════
+   HEADER
+═══════════════════════════ */
+.header{
+  background:linear-gradient(140deg,#0f0f00 0%,#1e1e00 35%,#2c2c00 65%,#141400 100%);
+  padding:50px 38px 40px;
+  position:relative;overflow:hidden;
+}
+
+/* spinning rings */
+.ring{
+  position:absolute;border-radius:50%;pointer-events:none;
+  border:1.5px solid rgba(128,128,0,.22);
+  animation:spin var(--s,24s) linear infinite var(--dir,normal);
+}
+.r1{width:360px;height:360px;top:-140px;right:-90px; --s:30s}
+.r2{width:220px;height:220px;bottom:-95px;left:40px;  --s:19s;--dir:reverse;border-color:rgba(128,128,0,.12)}
+.r3{width:520px;height:520px;top:-220px;left:-175px;  --s:42s;border-color:rgba(128,128,0,.07)}
+.r4{width:170px;height:170px;top:16px;  left:40%;     --s:15s;border-color:rgba(185,194,0,.1)}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* pulsing glow */
+.halo{
+  position:absolute;top:24px;right:24px;
+  width:110px;height:110px;border-radius:50%;
+  background:radial-gradient(circle,rgba(128,128,0,.22),transparent 70%);
+  animation:pulse 4s ease-in-out infinite;pointer-events:none;
+}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.6);opacity:.18}}
+
+/* shimmer line */
+.glow-line{
+  position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,transparent,var(--o-bright),var(--o-lt),var(--o-bright),transparent);
+  background-size:200% 100%;
+  animation:shimmer 3s linear infinite;
+}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+
+.header-inner{position:relative;z-index:2}
+
+/* avatar + name row */
+.top-row{display:flex;align-items:flex-start;gap:18px;margin-bottom:6px}
+.avatar{
+  width:70px;height:70px;flex-shrink:0;border-radius:50%;
+  border:2.5px solid var(--o-lt);
+  background:linear-gradient(135deg,var(--o-dk),var(--o));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.85rem;
+  box-shadow:0 0 0 4px rgba(128,128,0,.2),0 6px 20px rgba(0,0,0,.45);
+  animation:popIn .7s .2s cubic-bezier(.34,1.56,.64,1) both;
+}
+@keyframes popIn{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(1)}}
+
+.name-ar{
+  font-family:'Amiri',serif;
+  font-size:clamp(1.6rem,4.5vw,2.85rem);
+  font-weight:700;color:#fff;line-height:1.2;
+  text-shadow:0 2px 14px rgba(0,0,0,.5);
+  animation:slideR .9s .35s ease both;
+}
+@keyframes slideR{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:none}}
+
+.divider-line{
+  height:2.5px;width:0;
+  background:linear-gradient(90deg,var(--o-bright),var(--o-lt),transparent);
+  margin:10px 0;
+  animation:grow 1s .78s ease both;
+}
+@keyframes grow{from{width:0}to{width:115px}}
+
+.title-label{
+  font-size:clamp(.78rem,.88rem,.95rem);
+  color:var(--o-pale);letter-spacing:.09em;font-weight:500;
+  animation:slideU .8s .92s ease both;
+}
+@keyframes slideU{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* contacts */
+.contacts{
+  display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;
+  animation:slideU .8s 1.08s ease both;
+}
+.ci{
+  display:flex;align-items:center;gap:8px;
+  color:rgba(255,255,255,.72);font-size:.83rem;
+  text-decoration:none;transition:color .3s;
+}
+.ci:hover{color:var(--o-pale)}
+.ci-icon{
+  width:28px;height:28px;flex-shrink:0;border-radius:50%;
+  border:1px solid rgba(128,128,0,.5);
+  background:rgba(128,128,0,.12);
+  display:flex;align-items:center;justify-content:center;font-size:.72rem;
+  transition:background .3s,border-color .3s;
+}
+.ci:hover .ci-icon{background:rgba(128,128,0,.3);border-color:var(--o-bright)}
+
+/* ═══════════════════════════
+   BODY GRID
+═══════════════════════════ */
+.body{display:grid;grid-template-columns:1fr 272px}
+
+.main{
+  padding:42px 42px 42px 30px;
+  border-left:1.5px solid rgba(128,128,0,.18);
+}
+.sidebar{
+  background:linear-gradient(175deg,#e9eebc 0%,#d8de90 100%);
+  padding:42px 26px;
+}
+
+/* ═══════════════════════════
+   SECTIONS
+═══════════════════════════ */
+.section{
+  margin-bottom:38px;
+  opacity:0;animation:secIn .65s ease both;
+}
+.section:nth-child(1){animation-delay:.55s}
+.section:nth-child(2){animation-delay:.75s}
+.section:nth-child(3){animation-delay:.95s}
+.section:nth-child(4){animation-delay:1.15s}
+@keyframes secIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+.st{
+  font-family:'Amiri',serif;
+  font-size:clamp(1rem,1.18rem,1.28rem);
+  font-weight:700;color:var(--o-deep);
+  margin-bottom:18px;
+  display:flex;align-items:center;gap:10px;
+}
+.st::after{content:'';flex:1;height:1.5px;background:linear-gradient(90deg,var(--o),transparent)}
+.si{
+  width:32px;height:32px;flex-shrink:0;border-radius:50%;
+  background:linear-gradient(135deg,var(--o-deep),var(--o-dk));
+  display:flex;align-items:center;justify-content:center;font-size:.75rem;
+  box-shadow:0 3px 10px rgba(0,0,0,.28),0 0 0 2px rgba(128,128,0,.22);
+}
+
+/* ── Education ── */
+.edu{
+  background:linear-gradient(135deg,#111100 0%,#252500 50%,#303010 100%);
+  border-radius:14px;padding:24px 26px;color:#fff;
+  position:relative;overflow:hidden;
+  border:1px solid rgba(128,128,0,.45);
+  box-shadow:0 10px 35px rgba(0,0,0,.25),inset 0 1px 0 rgba(128,128,0,.2);
+}
+.edu::before{
+  content:'';position:absolute;top:-40px;left:-40px;
+  width:150px;height:150px;border:1px solid rgba(128,128,0,.18);border-radius:50%
+}
+.edu::after{
+  content:'';position:absolute;bottom:-50px;right:-50px;
+  width:180px;height:180px;border:1px solid rgba(128,128,0,.1);border-radius:50%
+}
+.edu-deg{
+  font-family:'Amiri',serif;font-size:1.08rem;font-weight:700;
+  margin-bottom:6px;position:relative;z-index:1;
+}
+.edu-uni{font-size:.83rem;color:rgba(255,255,255,.58);margin-bottom:14px}
+.edu-grade{
+  display:inline-flex;align-items:center;gap:6px;
+  background:linear-gradient(90deg,var(--o),var(--o-bright));
+  color:#fff;padding:5px 16px;border-radius:30px;
+  font-size:.8rem;font-weight:700;
+  box-shadow:0 4px 14px rgba(128,128,0,.55);
+  position:relative;z-index:1;
+}
+
+/* ── Experience ── */
+.exp{position:relative;padding-right:22px;margin-bottom:26px}
+.exp::before{
+  content:'';position:absolute;top:6px;right:0;
+  width:10px;height:10px;background:var(--o);border-radius:50%;
+  box-shadow:0 0 0 3px rgba(128,128,0,.22)
+}
+.exp::after{
+  content:'';position:absolute;top:20px;right:4px;
+  width:2px;height:calc(100% - 12px);
+  background:linear-gradient(to bottom,rgba(128,128,0,.45),transparent)
+}
+.exp-t{font-size:.97rem;font-weight:700;color:var(--o-dk);margin-bottom:3px}
+.exp-s{font-size:.83rem;color:var(--o-soft);margin-bottom:7px}
+.badge{
+  display:inline-block;font-size:.75rem;color:var(--o-mid);
+  background:rgba(128,128,0,.12);border:1px solid rgba(128,128,0,.3);
+  padding:2px 12px;border-radius:20px;font-weight:600;margin-bottom:8px;
+}
+.exp-d{font-size:.83rem;color:var(--o-soft);line-height:1.8}
+
+/* ── Course Cards ── */
+.card{
+  border:1px solid rgba(128,128,0,.22);border-radius:10px;
+  padding:13px 16px;margin-bottom:10px;
+  background:rgba(255,255,235,.75);
+  position:relative;overflow:hidden;
+  transition:all .32s cubic-bezier(.22,.68,0,1.2);
+}
+.card::before{
+  content:'';position:absolute;top:0;right:0;
+  width:4px;height:100%;
+  background:linear-gradient(to bottom,var(--o),var(--o-bright));
+  transform:scaleY(0);transform-origin:top;transition:transform .32s;
+}
+.card:hover{transform:translateX(-5px);border-color:var(--o);background:#fffff0;box-shadow:5px 0 20px rgba(128,128,0,.2)}
+.card:hover::before{transform:scaleY(1)}
+.card-t{font-size:.9rem;font-weight:700;color:var(--o-dk);margin-bottom:4px}
+.card-d{font-size:.76rem;color:var(--o-soft);line-height:1.5}
+
+/* ── Volunteer ── */
+.vol{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
+.vol-y{
+  font-size:.75rem;color:var(--o-dk);font-weight:700;
+  background:rgba(128,128,0,.14);border:1px solid rgba(128,128,0,.3);
+  padding:3px 10px;border-radius:20px;flex-shrink:0;white-space:nowrap;
+}
+.vol-t{font-size:.83rem;color:var(--o-soft);line-height:1.7}
+
+/* ── Sidebar skills ── */
+.sidebar .st{font-size:1.05rem;color:var(--o-deep)}
+.sidebar .st::after{background:linear-gradient(90deg,var(--o-dk),transparent)}
+.sidebar .si{background:linear-gradient(135deg,var(--o-deep),var(--o-mid))}
+
+.sk{
+  display:flex;align-items:flex-start;gap:9px;
+  margin-bottom:10px;font-size:.83rem;color:var(--o-dk);line-height:1.55;
+  transition:transform .22s,color .22s;
+}
+.sk:hover{transform:translateX(-4px);color:var(--o-deep)}
+.dot{
+  width:7px;height:7px;flex-shrink:0;margin-top:6px;border-radius:50%;
+  background:linear-gradient(135deg,var(--o),var(--o-bright));
+  box-shadow:0 1px 5px rgba(128,128,0,.5);
+}
+
+/* strategy chips */
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{
+  font-size:.75rem;font-weight:600;
+  color:var(--o-deep);
+  background:rgba(128,128,0,.15);
+  border:1px solid rgba(128,128,0,.4);
+  padding:4px 12px;border-radius:20px;
+  transition:background .25s,color .25s,transform .22s;
+}
+.chip:hover{background:var(--o);color:#fff;transform:translateY(-2px)}
+
+/* ── Footer ── */
+.footer{
+  height:5px;
+  background:linear-gradient(90deg,var(--o-deep),var(--o-dk),var(--o),var(--o-bright),var(--o),var(--o-dk),var(--o-deep));
+  background-size:200% 100%;
+  animation:shimmer 4s linear infinite;
+}
+
+/* ═══════════════════════════
+   RESPONSIVE
+═══════════════════════════ */
+@media(max-width:700px){
+  body{padding:0 0 40px}
+  .page{border-radius:0}
+  .header{padding:30px 18px 26px}
+  .avatar{width:56px;height:56px;font-size:1.5rem}
+  .body{grid-template-columns:1fr}
+  .main{padding:26px 18px;border-left:none;border-bottom:1.5px solid rgba(128,128,0,.18)}
+  .sidebar{padding:26px 18px}
+  .card:hover{transform:none}
+  .contacts{gap:8px}
+  .ci{font-size:.78rem}
+}
+@media(max-width:400px){
+  .name-ar{font-size:1.45rem}
+}
+@media print{
+  body{background:#fff;padding:0}
+  .page{box-shadow:none;animation:none;border:1.5px solid var(--o)}
+  .section{opacity:1;animation:none}
+  .spark,.ring,.halo{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- Sparks -->
+<div class="spark" style="width:5px;height:5px;left:7%;  --d:13s;--dl:0s"></div>
+<div class="spark" style="width:4px;height:4px;left:21%; --d:9s; --dl:2s"></div>
+<div class="spark" style="width:6px;height:6px;left:54%; --d:14s;--dl:1.5s"></div>
+<div class="spark" style="width:3px;height:3px;left:75%; --d:10s;--dl:3s"></div>
+<div class="spark" style="width:5px;height:5px;left:42%; --d:11s;--dl:5s"></div>
+<div class="spark" style="width:4px;height:4px;left:66%; --d:8s; --dl:4s"></div>
+<div class="spark" style="width:6px;height:6px;left:87%; --d:12s;--dl:6.5s"></div>
+
+<div class="page">
+
+  <!-- ════ HEADER ════ -->
+  <div class="header">
+    <div class="ring r1"></div>
+    <div class="ring r2"></div>
+    <div class="ring r3"></div>
+    <div class="ring r4"></div>
+    <div class="halo"></div>
+    <div class="glow-line"></div>
+
+    <div class="header-inner">
+      <div class="top-row">
+        <div class="avatar">🌿</div>
+        <div>
+          <div class="name-ar">أسماء احمد عبدالحميد مليك</div>
+          <div class="divider-line"></div>
+          <div class="title-label">معلمة رياض أطفال &nbsp;|&nbsp; مربية ومبدعة</div>
+        </div>
+      </div>
+      <div class="contacts">
+        <a href="tel:+201003475018" class="ci">
+          <span class="ci-icon">📞</span><span dir="ltr">+201003475018</span>
+        </a>
+        <a href="mailto:asmaaabdelhamed1990@gmail.com" class="ci">
+          <span class="ci-icon">✉</span>asmaaabdelhamed1990@gmail.com
+        </a>
+        <span class="ci">
+          <span class="ci-icon">📍</span>مدينة العبور، القليوبية
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ BODY ════ -->
+  <div class="body">
+
+    <!-- ── MAIN ── -->
+    <div class="main">
+
+      <!-- Education -->
+      <div class="section">
+        <div class="st"><span class="si">🎓</span>المؤهل الدراسي</div>
+        <div class="edu">
+          <div class="edu-deg">بكالوريوس مهني في التربية للطفولة المبكرة</div>
+          <div class="edu-uni">جامعة القاهرة — 2021</div>
+          <span class="edu-grade">✦ تقدير امتياز</span>
+        </div>
+      </div>
+
+      <!-- Experience -->
+      <div class="section">
+        <div class="st"><span class="si">💼</span>الخبرة العملية</div>
+        <div class="exp">
+          <div class="exp-t">معلمة رياض أطفال</div>
+          <div class="exp-s">مدرسة المساعي الخاصة للغات — العبور</div>
+          <span class="badge">2023 — حتى الآن</span>
+          <div class="exp-d">تدريس المناهج باستخدام استراتيجيات تعليمية حديثة (التعلم النشط — التعلم بالمشروعات — التعلم التعاوني) بما يعزز مشاركة الأطفال وتنمية مهاراتهم. إدارة فصول دراسية لأكثر من 30 طالبًا وتنظيم الفعاليات والرحلات التعليمية.</div>
+        </div>
+        <div class="exp">
+          <div class="exp-t">عضو كنترول</div>
+          <div class="exp-s">مدرسة المساعي الخاصة للغات — العبور</div>
+          <span class="badge">2023 — حتى الآن</span>
+        </div>
+      </div>
+
+      <!-- Courses -->
+      <div class="section">
+        <div class="st"><span class="si">📜</span>الدورات والشهادات</div>
+        <div class="card">
+          <div class="card-t">الرخصة الدولية لقيادة الحاسب الآلي (ICDL)</div>
+          <div class="card-d">HP Foundation — 2024 &nbsp;|&nbsp; أساسيات الكمبيوتر، الإنترنت، مايكروسوفت أوفيس، أمن المعلومات</div>
+        </div>
+        <div class="card">
+          <div class="card-t">دورة تصميم الإنفوجرافيك التعليمي</div>
+          <div class="card-d">عرض المفاهيم الأكاديمية بطريقة بصرية مبسطة وجذابة</div>
+        </div>
+        <div class="card">
+          <div class="card-t">Certified Qualified Digital Educator</div>
+          <div class="card-d">شهادة معلم رقمي معتمد</div>
+        </div>
+        <div class="card">
+          <div class="card-t">توظيف أدوات الذكاء الاصطناعي في التدريس</div>
+          <div class="card-d">2025 &nbsp;|&nbsp; تطوير استراتيجيات التدريس وتحسين التفاعل داخل الفصل</div>
+        </div>
+      </div>
+
+      <!-- Volunteer -->
+      <div class="section">
+        <div class="st"><span class="si">🤝</span>العمل التطوعي</div>
+        <div class="vol">
+          <span class="vol-y">2008</span>
+          <div class="vol-t"><strong>جمعية الرسالة</strong> — دروس التقوية، مساعدة الأسر الفقيرة، رعاية المسنين (الابن البار)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── SIDEBAR ── -->
+    <div class="sidebar">
+
+      <div class="section">
+        <div class="st"><span class="si">⚡</span>المهارات</div>
+        <div class="sk"><span class="dot"></span>أداء مهام متعددة بكفاءة</div>
+        <div class="sk"><span class="dot"></span>إدارة +30 طالب</div>
+        <div class="sk"><span class="dot"></span>استراتيجيات تدريس حديثة</div>
+        <div class="sk"><span class="dot"></span>العمل الجماعي والتعاون</div>
+        <div class="sk"><span class="dot"></span>تقييم التلاميذ ومتابعتهم</div>
+        <div class="sk"><span class="dot"></span>إدارة الوقت والتكيف</div>
+        <div class="sk"><span class="dot"></span>التواصل الفعال</div>
+        <div class="sk"><span class="dot"></span>خلق بيئة تعلم ممتعة</div>
+        <div class="sk"><span class="dot"></span>حل المشكلات</div>
+        <div class="sk"><span class="dot"></span>تنظيم الرحلات والحفلات</div>
+        <div class="sk"><span class="dot"></span>العروض الاستعراضية</div>
+      </div>
+
+      <div class="section">
+        <div class="st"><span class="si">💻</span>المنصات</div>
+        <div class="sk"><span class="dot"></span>سلاح التلميذ</div>
+        <div class="sk"><span class="dot"></span>ماي سكول</div>
+        <div class="sk"><span class="dot"></span>مايكروسوفت أوفيس</div>
+        <div class="sk"><span class="dot"></span>أدوات الذكاء الاصطناعي</div>
+      </div>
+
+      <div class="section">
+        <div class="st"><span class="si">🌿</span>استراتيجيات التدريس</div>
+        <div class="chips">
+          <span class="chip">التعلم النشط</span>
+          <span class="chip">المشروعات</span>
+          <span class="chip">التعاوني</span>
+          <span class="chip">الإنفوجرافيك</span>
+          <span class="chip">التعليم الرقمي</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer"></div>
+</div>
+
+</body>
+</html>
